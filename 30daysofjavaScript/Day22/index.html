@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <script src="./day22variables.js"></script>
+    <style src="./day22.css"></style>
+    <link rel="stylesheet" href="./day22.css">
+</head>
+<body>
+    <div class="exp">
+
+    </div>
+    <script>
+
+const exp = document.querySelector(".exp")
+const isPrime = (number) => {
+    const sqrtnum = Math.floor(Math.sqrt(number));
+    let prime = number != 1;
+    for(let i = 2; i<sqrtnum+1; i++){
+        if(number % i === 0){
+            prime = false;
+            break;
+        }
+    }
+    return prime
+}
+
+
+
+for (let i=1; i <101;i++){
+    const numbers = document.createElement('p')
+    numbers.className ='n'
+    numbers.style.fontSize = '24px'
+    numbers.textContent = i 
+    console.log(numbers)
+    if(i % 2 === 0){
+        numbers.style.backgroundColor = 'green'
+    } else{
+        numbers.style.backgroundColor = 'yellow'
+    }
+    if(isPrime(i)){
+        numbers.style.backgroundColor = 'pink'
+    }
+    exp.appendChild(numbers)
+};
+
+    </script>
+</body>
+</html>

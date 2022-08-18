@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <script src="./day23variables.js"></script>
+</head>
+<body>
+    <div>
+        <input type="text" name="text" id="sample">
+    </div>
+    <p id="log"></p>
+    <script>
+        const log = document.getElementById('log');
+        const input = document.querySelector('input');
+            input.addEventListener('keypress', logKey);
+    function logKey(e) {
+  log.textContent += `${e.code}`;
+}
+    </script>
+    <div class="numberOutPut"></div>
+    <script>
+        const numberOutPut = document.querySelector(".numberOutPut")
+        document.body.addEventListener('keypress', e=>{
+            const number = document.createElement('p')
+            number.textContent = Math.floor(Math.random()*100)
+            numberOutPut.appendChild(number)
+            console.log(number)
+        })
+    </script>
+</body>
+
+
+
+</html>

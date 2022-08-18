@@ -1,0 +1,5 @@
+.exp{
+    display: grid;
+    grid-template-columns: 6;
+    grid-gap: 10px;
+}
