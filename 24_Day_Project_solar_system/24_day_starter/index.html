@@ -11,16 +11,70 @@
 		<h1>Calculate a weight of an object on a planet</h1>
 
 		<input type="text" id="mass" placeholder="Mass in Kilogram" />
-		<select>
+		<select id="planets">
 			<option value='none'>--select planet-- </option>
 			<option value="0">Earth</option>
-			<option value="1"></option>
-			<option value="2"></option>
-			<option value="3"></option>
-			<option value="4"></option>
+			<option value="1">Jupiter</option>
+			<option value="2">Mars</option>
+			<option value="3">Mercury</option>
+			<option value="4">Moon</option>
+			<option value="5">Neptune</option>
+			<option value="6">Pluto</option>
+			<option value="7">Saturn</option>
+			<option value="8">Uranus</option>
+			<option value="9">Venus</option>
 		</select>
-		<button>Calculate weight</button>
-
+		<button onclick="getInputValue">Calculate weight</button>
+		<p id="answer"></p>
+<script> 
+function getInputValue(){
+	var inputVal = document.getElementById("mass").value;
+	
+};
+var planet = document.getElementById("planets");
+var value = planet.options[planet.selectedIndex].value;
+console.log(value)
+if(value ===0){
+	document.getElementById("answer") = getInputValue
+}
+if (value ===1){
+	getInputValue.value *2.34
+	document.getElementById("answer") = getInputValue
+	
+}
+if (value ===2){
+	getInputValue.value * .38
+	document.getElementById("answer") = getInputValue
+}
+if (value ===3){
+	getInputValue.value * .38
+	document.getElementById("answer") = getInputValue
+}
+if (value ===4){
+	getInputValue.value * .166
+	document.getElementById("answer") = getInputValue
+}
+if (value ===5){
+	getInputValue.value * 1.19
+	document.getElementById("answer") = getInputValue
+}
+if (value ===6){
+	getInputValue.value * .06
+	document.getElementById("answer") = getInputValue
+}
+if (value ===7){
+	getInputValue.value * 1.06
+	document.getElementById("answer") = getInputValue
+}
+if (value ===8){
+	getInputValue.value * .92
+	document.getElementById("answer") = getInputValue
+}
+if (value ===9){
+	getInputValue.value * .91
+	document.getElementById("answer") = getInputValue
+}
+	</script>
 	</header>
 	<main>
 		<div class="flex-container">
