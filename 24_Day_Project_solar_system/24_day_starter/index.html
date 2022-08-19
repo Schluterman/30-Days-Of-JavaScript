@@ -24,67 +24,79 @@
 			<option value="8">Uranus</option>
 			<option value="9">Venus</option>
 		</select>
-		<button onclick="getInputValue">Calculate weight</button>
-		<p id="answer"></p>
+		<button onclick="getInputValue()">Calculate weight</button>
 <script> 
+
+const planets = [
+	{
+		multiplicationValue: 1,
+		photo: "./images/earth.png",
+	}, 
+	{
+		multiplicationValue: 2.34,
+		photo: "./images/jupiter.png",
+	}, 
+	{
+		multiplicationValue: 0.38,
+		photo: "./images/mars.png",
+	}, 
+	{
+		multiplicationValue: 0.38,
+		photo: "./images/murcury.png",
+	}, 
+	{
+		multiplicationValue: 0.166,
+		photo: "./images/moon.png",
+	}, 
+	{
+		multiplicationValue: 1.19,
+		photo: "./images/neptun.png",
+	}, 
+	{
+		multiplicationValue: 0.06,
+		photo: "./images/pluto.png",
+	}, 
+	{
+		multiplicationValue: 1.06,
+		photo: "./images/saturn.png",
+	}, 
+	{
+		multiplicationValue: 0.92,
+		photo: "./images/uranus.png",
+	}, 
+	{
+		multiplicationValue: 0.91,
+		photo: "./images/venus.png",
+	}, 
+]
+
 function getInputValue(){
-	var inputVal = document.getElementById("mass").value;
-	
+	const mass = document.getElementById("mass").value;
+	const planetIndex = document.getElementById("planets").value;
+	const planetValues = planets[planetIndex]
+	//get the input value times the planets gravity display weight as new "ptagContent"
+	const planet = document.createElement("p")
+	planet.innerText = mass * planetValues.multiplicationValue;
+	const answer = document.getElementById("answer");
+	answer.innerHTML = ''
+	answer.appendChild(planet)
+	//Creates a img tag to display the image of that world 
+	const elem = document.createElement("img");
+	elem.src = planetValues.photo;
+	document.getElementById("answer").appendChild(elem);
 };
-var planet = document.getElementById("planets");
-var value = planet.options[planet.selectedIndex].value;
-console.log(value)
-if(value ===0){
-	document.getElementById("answer") = getInputValue
-}
-if (value ===1){
-	getInputValue.value *2.34
-	document.getElementById("answer") = getInputValue
-	
-}
-if (value ===2){
-	getInputValue.value * .38
-	document.getElementById("answer") = getInputValue
-}
-if (value ===3){
-	getInputValue.value * .38
-	document.getElementById("answer") = getInputValue
-}
-if (value ===4){
-	getInputValue.value * .166
-	document.getElementById("answer") = getInputValue
-}
-if (value ===5){
-	getInputValue.value * 1.19
-	document.getElementById("answer") = getInputValue
-}
-if (value ===6){
-	getInputValue.value * .06
-	document.getElementById("answer") = getInputValue
-}
-if (value ===7){
-	getInputValue.value * 1.06
-	document.getElementById("answer") = getInputValue
-}
-if (value ===8){
-	getInputValue.value * .92
-	document.getElementById("answer") = getInputValue
-}
-if (value ===9){
-	getInputValue.value * .91
-	document.getElementById("answer") = getInputValue
-}
+//may need an event listenter to notify the change of the selection refering to the option value 
+
+
+
+
+
 	</script>
+
 	</header>
 	<main>
-		<div class="flex-container">
-			<div class="flex-item image">
-				<img src='./images/earth.png' class="planet-image" />
-			</div>
-			<div class="flex-item description"></div>
-
-		</div>
-
+		
+		<div id="answer"></div>
 
 	</main>
 
