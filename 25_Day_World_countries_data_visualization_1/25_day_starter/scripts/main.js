@@ -1,4 +1,4 @@
-import {countries_data} from "./data/countries_data.js";
+import {countries_data} from "./countries_data.js";
 console.log(countries)
 alert('Open the console and check if the countries has been loaded')
 function topTenPop(){
