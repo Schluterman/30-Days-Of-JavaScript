@@ -20,8 +20,8 @@
 
 		<div class="wrapper">
 			<div class="graph-buttons">
-				<button class="population" onclick="topTenPop()">Population</button>
-				<button class="languages" onclick="topTenLang()">Languages</button>
+				<button class="population" onclick="topTenPop()">Population</button> <!--OnClick Function Needs to Change DataSet: FirstData[to Names of Top 10 Countries ] SecondData[Population#] -->
+				<button class="languages" onclick="topTenLang()">Languages</button><!--Onclick Function Needs to Change DataSet: FirstData[Top 10 Languages Spoken] SecondData[# of countries that speak it]-->
 			</div>
 		</div>
 			  
@@ -33,31 +33,24 @@
 		</div>
 	  </div>
 	  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 	  <script>
 	  // example DATA 
 	  const data = {
-		labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],//this part needs to return Top 10 
+		label:'Name',          
 		datasets: [{
-		  data: [18, 12, 6, 9, 12, 3, 9], //needs to target a new array made up of
-		  backgroundColor: [
-			'rgba(255, 26, 104, 0.2)',
-			'rgba(54, 162, 235, 0.2)',
-			'rgba(255, 206, 86, 0.2)',
-			'rgba(75, 192, 192, 0.2)',
-			'rgba(153, 102, 255, 0.2)',
-			'rgba(255, 159, 64, 0.2)',
-			'rgba(0, 0, 0, 0.2)'
-		  ],
-		  borderColor: [
-			'rgba(255, 26, 104, 1)',
-			'rgba(54, 162, 235, 1)',
-			'rgba(255, 206, 86, 1)',
-			'rgba(75, 192, 192, 1)',
-			'rgba(153, 102, 255, 1)',
-			'rgba(255, 159, 64, 1)',
-			'rgba(0, 0, 0, 1)'
-		  ],
-		  borderWidth: 1
+		  data: [18, 12, 6, 9, 12, 3, 9], //needs to target a new array made up of Top 10 Countries Name
+		  backgroundColor: 'rgba(255, 165, 0)',
+		  borderColor: 'rgba(255, 165, 0)',
+		  borderWidth: 1,
+		  yAxisID: 'y'
+		},{
+		  label: 'Amount',
+		data: [10,24,455,223,124], /*this needs to be the Population Value from Each Top 10*/
+		backgroundColor: 'rgba(255, 165, 0)',
+		  borderColor: 'rgba(255, 165, 0)',
+		  borderWidth: 1,
+		  yAxisID: 'amount'
 		}]
 	  };
   
@@ -66,26 +59,39 @@
 		type: 'bar',
 		data, 
 		options: {
-			indexAxis:'y',
-		  scales: {
-			y: {
-			  beginAtZero: true
+		scales:{
+			
+			y:{
+				
+				position:'left',
+			},
+			amount:{
+				
+				position:'right',
+				grid:{
+					drawOnChartArea: false,
+				}
 			}
-		  }
-		}
+		},
+		},
 	  };
   
 	  // render init block
 	  const myChart = new Chart(
-		document.getElementById('myChart'),
-		config
-	  );
+			document.getElementById('myChart'),
+			config
+		);
+	  const updateChart = () => {
+		//update the chart
+		console.log(data)
+	  }
+	  
 	  </script>
   
 	
 	
 	<script src="./data/countries_data.js"></script>
-	<script src="./js/main.js"></script>
+	<script src="./scripts/main.js"></script>
 	
 
 </body>
